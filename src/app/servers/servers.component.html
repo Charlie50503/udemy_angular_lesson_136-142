@@ -1,11 +1,13 @@
+
 <div class="row">
+
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <!-- [routerLink]="['/servers',5,'edit','?=']" 我們不會在這裡加上?-->
       <a
       [routerLink]="['/servers',server.id]"
       [queryParams]="{
-        allowEdit:'1'
+        allowEdit:server.id===3 ? '1': '0'
       }"
       fragment="loading"
         href="#"
@@ -26,7 +28,7 @@
     <router-outlet></router-outlet>
   </div>
   <button class="btn btn-primary" (click)="onReloadPage()">Reload Page</button>
-  <div class="longDiv">
+  <!-- <div class="longDiv">
     123
   </div>
   <div class="longDiv">
@@ -38,6 +40,6 @@
   <div class="longDiv">
     123
   </div>
-  <h1 id="loading">loading</h1>
+  <h1 id="loading">loading</h1> -->
 </div>
 
