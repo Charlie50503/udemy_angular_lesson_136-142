@@ -3,7 +3,7 @@
     <div class="list-group">
       <!-- [routerLink]="['/servers',5,'edit','?=']" 我們不會在這裡加上?-->
       <a
-      [routerLink]="['/servers',server.id,server.name]"
+      [routerLink]="['/servers',server.id]"
       [queryParams]="{
         allowEdit:'1'
       }"
@@ -16,13 +16,14 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <a href="" routerLink="/servers">絕對路徑Reload Page</a>
+    <!-- <a href="" routerLink="/servers">絕對路徑Reload Page</a>
     <a href="" routerLink="servers"> 相對路徑1會報錯Reload Page</a>
     <a href="" routerLink="./servers"> 相對路徑2會報錯Reload Page</a>
     <a href="" routerLink="../servers"> 相對路徑寫法3Reload Page</a>
     <app-edit-server></app-edit-server>
     <hr>
-    <app-server></app-server>
+    <app-server></app-server> -->
+    <router-outlet></router-outlet>
   </div>
   <button class="btn btn-primary" (click)="onReloadPage()">Reload Page</button>
   <div class="longDiv">
