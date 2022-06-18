@@ -1,3 +1,4 @@
+import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
@@ -12,9 +13,19 @@ export class EditServerComponent implements OnInit {
   serverName = '';
   serverStatus = '';
 
-  constructor(private serversService: ServersService) { }
+  constructor(private serversService: ServersService,
+    private route:ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.route.snapshot.queryParams) // 方法一
+    console.log(this.route.snapshot.fragment) // 方法一
+    this.route.fragment.subscribe((fragment)=>{
+      console.log("fragment",fragment);
+
+    })
+    this.route.queryParams.subscribe((params:Params)=>{
+      console.log("params",params);
+    })
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
