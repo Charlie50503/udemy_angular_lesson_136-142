@@ -3,18 +3,7 @@
     <div class="list-group">
       <!-- [routerLink]="['/servers',5,'edit','?=']" 我們不會在這裡加上?-->
       <a
-      [routerLink]="['/servers',5,'edit']"
-      [queryParams]="{
-        allowEdit:'1'
-      }"
-      fragment="loading"
-        href="#"
-        class="list-group-item"
-        *ngFor="let server of servers">
-        {{ server.name }}
-      </a>
-      <a
-      [routerLink]="['/servers']"
+      [routerLink]="['/servers',server.id,server.name]"
       [queryParams]="{
         allowEdit:'1'
       }"

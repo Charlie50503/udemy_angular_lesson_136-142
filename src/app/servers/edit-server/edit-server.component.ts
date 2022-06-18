@@ -17,18 +17,24 @@ export class EditServerComponent implements OnInit {
     private route:ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.queryParams) // 方法一
-    console.log(this.route.snapshot.fragment) // 方法一
-    this.route.fragment.subscribe((fragment)=>{
-      console.log("fragment",fragment);
+    // console.log(this.route.snapshot.queryParams) // 方法一
+    // console.log(this.route.snapshot.fragment) // 方法一
+    // this.route.fragment.subscribe((fragment)=>{
+    //   console.log("fragment",fragment);
 
-    })
-    this.route.queryParams.subscribe((params:Params)=>{
+    // })
+    this.route.params.subscribe((params:Params)=>{
       console.log("params",params);
+      const id = +params['id'] | 1;
+      this.server = this.serversService.getServer(id);
+      this.serverName = this.server.name;
+      this.serverStatus = this.server.status;
     })
-    this.server = this.serversService.getServer(1);
-    this.serverName = this.server.name;
-    this.serverStatus = this.server.status;
+
+    // const id = this.route.snapshot.paramMap.get('id'); // 取網誌參數寫法一
+    // const id = this.route.snapshot.params['id']; // 取網誌參數寫法二
+    const { id } = this.route.snapshot.params // 取網誌參數寫法三
+    console.log("id",id)
   }
 
   onUpdateServer() {
