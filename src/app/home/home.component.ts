@@ -14,9 +14,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLoadServers(){
+  onLoadServers(id:number){
     //complex calculation
-    this.router.navigate(['/servers'])//絕對路徑
+    this.router.navigate(['/servers',id,'edit'],{
+      queryParams:{allowEdit:'1'},
+      fragment:'loading'
+    })//絕對路徑
     // this.router.navigate(['servers'])//相對路徑
   }
 }
