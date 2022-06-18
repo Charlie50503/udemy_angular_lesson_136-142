@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <a
+        href="#"
+        class="list-group-item"
+        *ngFor="let server of servers">
+        {{ server.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <a href="" routerLink="/servers">絕對路徑Reload Page</a>
+    <a href="" routerLink="servers"> 相對路徑1會報錯Reload Page</a>
+    <a href="" routerLink="./servers"> 相對路徑2會報錯Reload Page</a>
+    <a href="" routerLink="../servers"> 相對路徑寫法3Reload Page</a>
+    <app-edit-server></app-edit-server>
+    <hr>
+    <app-server></app-server>
+  </div>
+  <button class="btn btn-primary" (click)="onReloadPage()">Reload Page</button>
+</div>
+
