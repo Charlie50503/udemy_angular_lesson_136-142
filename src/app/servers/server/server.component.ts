@@ -23,7 +23,8 @@ export class ServerComponent implements OnInit {
   }
 
   onEdit(){
-    this.router.navigate(['edit'],{relativeTo:this.route})
+    // this.router.navigate(['edit'],{relativeTo:this.route,queryParamsHandling:'merge'})//會合併參數
+    this.router.navigate(['edit'],{relativeTo:this.route,queryParamsHandling:'preserve'})//會用舊的參數覆蓋新的參數
   }
 
 }
