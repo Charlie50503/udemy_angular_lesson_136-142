@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
+  // { path: '', redirectTo: '/somewhere-else' ,pathMatch: 'full' }, 關於使用''會報錯的解法
   { path: '', component: HomeComponent },
   { path: 'users', component: UsersComponent ,children:[
     { path: ':id/:name', component: UserComponent }
